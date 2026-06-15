@@ -1,5 +1,7 @@
 # Soundcore AI Recorder to Obsidian
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 Download Soundcore AI recordings, remove long ambient/noise sections, transcribe them, summarize each day into an Obsidian Markdown note, and archive the original audio plus full transcripts to a NAS or local folder.
 
 This project was built for daily wearable recordings that may contain Chinese, English, German, Italian, background street conversations, and long stretches of silence or non-speech.
