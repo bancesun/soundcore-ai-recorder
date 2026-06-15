@@ -1,0 +1,15 @@
+.env
+.browser-profile/
+.soundcore_manifest.json
+downloads/
+archive/
+transcripts/
+logs/
+scratch/
+models/
+*.log
+*.pyc
+__pycache__/
+.venv/
+.DS_Store
+
