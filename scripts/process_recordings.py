@@ -498,8 +498,6 @@ Return detailed Markdown with these sections:
 - Decisions / Commitments
 - Action Items
 - People / Speaker Notes
-- Health / Medical / Insurance
-- Food / Family / Daily Life
 - Unclear or Noisy Parts
 
 There is no fixed daily theme unless the user explicitly provides one for that
@@ -509,6 +507,10 @@ logistics, finance, travel, relationships, or something else. Choose based on
 importance, specificity, consequences, and future usefulness, not just frequency.
 If two themes are clearly important, cover both in separate subsections. Use
 "Secondary Signals" for meaningful but lower-priority context.
+Only add extra topic-specific sections such as Health / Medical / Insurance,
+Food / Family / Daily Life, Work, Travel, Finance, or Relationships when that
+topic is genuinely important for this date. Do not include empty, routine, or
+template-like sections just because they appeared in earlier notes.
 
 If the inferred or user-provided important theme is a medical conversation,
 especially a German doctor conversation, be much more detailed than usual.
