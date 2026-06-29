@@ -868,11 +868,25 @@ def rebuild_daily_note(client: OpenAI | None, manifest: dict, date: str) -> Path
         return None
     vault = Path(os.environ.get("OBSIDIAN_VAULT", str(ROOT))).expanduser()
     transcript, filter_stats = combined_transcript(entries, filtered=True)
+    note = vault / f"{date}.md"
+    if not transcript:
+        print(f"No meaningful transcript for {date}; skipping Obsidian note.")
+        if note.exists() and "Summary pending" in note.read_text(encoding="utf-8", errors="ignore"):
+            note.unlink()
+            print(f"Removed pending note with no content: {note}")
+        for entry in entries:
+            entry["note"] = ""
+        save_manifest(manifest)
+        return None
+    if client is None:
+        print(f"Summary client unavailable for {date}; skipping Obsidian note.")
+        for entry in entries:
+            entry["note"] = ""
+        save_manifest(manifest)
+        return None
     if client is not None and transcript:
         print(f"Rebuilding daily summary for {date} from {len(entries)} recording(s)...")
         summary = summarize(client, date, transcript)
-    else:
-        summary = pending_summary()
     note = write_daily_note(vault, date, entries, summary, filter_stats)
     for entry in entries:
         entry["note"] = str(note)
